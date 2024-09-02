@@ -29,11 +29,9 @@ func main() {
 		fmt.Println("Visited: ", r.Request.URL)
 	})
 
-	// Get Date from section.gameModules
-	c.OnHTML("section.gameModules", func(e *colly.HTMLElement) {
-		// if strings.Contains(e.Text, "2024") {
-		fmt.Println(e.ChildText("header.Card__Header"))
-		// }
+	// Get Date with ForEach
+	c.OnHTML("html", func(e *colly.HTMLElement) {
+		e.ForEach("section.gameModules", getGameDayInfo)
 	})
 
 	// Get Teams names
@@ -43,4 +41,9 @@ func main() {
 
 	c.Visit("https://www.espn.com/nfl/scoreboard/_/week/1/year/2024/seasontype/2")
 	fmt.Println(teams)
+}
+
+func getGameDayInfo(index int, h *colly.HTMLElement) {
+	fmt.Println(h.ChildText("header.Card__Header"))
+	fmt.Println(h.ChildText("div.ScoreCell__TeamName"))
 }
