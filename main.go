@@ -2,9 +2,20 @@ package main
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/gocolly/colly"
 )
+
+type GameDay struct {
+	MatchUp struct{}
+	date    time.Time
+}
+
+type MatchUp struct {
+	AwayTeam string
+	HomeTeam string
+}
 
 func main() {
 	c := colly.NewCollector()
@@ -18,20 +29,18 @@ func main() {
 		fmt.Println("Visited: ", r.Request.URL)
 	})
 
-	c.OnHTML("a[data-track-nav_item]", func(e *colly.HTMLElement) {
-		if e.Text == "" {
-			return
-		}
-		teams = append(teams, e.Text)
-		// fmt.Println(e.Text)
+	// Get Date from section.gameModules
+	c.OnHTML("section.gameModules", func(e *colly.HTMLElement) {
+		// if strings.Contains(e.Text, "2024") {
+		fmt.Println(e.ChildText("header.Card__Header"))
+		// }
 	})
 
-	// c.Visit("https://www.espn.com/nfl/schedule/_/week/4/year/2024/seasontype/1")
-	c.Visit("https://www.espn.com/nfl/schedule/_/week/1/year/2024/seasontype/2")
-	total := 0
-	for _, v := range teams[1:] {
-		fmt.Println(v)
-		total++
-	}
-	fmt.Println(total)
+	// Get Teams names
+	c.OnHTML("div.ScoreCell__TeamName", func(e *colly.HTMLElement) {
+		teams = append(teams, e.Text)
+	})
+
+	c.Visit("https://www.espn.com/nfl/scoreboard/_/week/1/year/2024/seasontype/2")
+	fmt.Println(teams)
 }
