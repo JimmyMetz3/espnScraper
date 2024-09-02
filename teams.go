@@ -1,11 +1,5 @@
 package main
 
-type Team struct {
-	Wins   int
-	Losses int
-	Ties   int
-}
-
 var Teams = map[string]Team{
 	"Jaguars":    {Wins: 0, Losses: 0, Ties: 0},
 	"Ravens":     {Wins: 0, Losses: 0, Ties: 0},
