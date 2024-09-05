@@ -3,17 +3,28 @@ package main
 import (
 	"fmt"
 	"strings"
+	"time"
 
 	"github.com/gocolly/colly"
 )
 
-type GameDay struct {
+type Week struct {
+	Week     int
+	Gamedays DayOfWeek
+}
+
+type DayOfWeek struct {
+	Day   time.Weekday
+	Games Matchup
+}
+
+type Matchup struct {
 	AwayTeam Team
 	HomeTeam Team
-	Date     string
 }
 
 type Team struct {
+	Name   string
 	Wins   int
 	Losses int
 	Ties   int
@@ -31,13 +42,14 @@ func addGameDay(index int, e *colly.HTMLElement) {
 func getGameDayInfo(index int, e *colly.HTMLElement) {
 	fmt.Println(e.ChildText("header.Card__Header"))
 	fmt.Println(e.ChildText("div.ScoreCell__TeamName"))
+	// fmt.Println(e.ChildText("a"))
 	days = append(days, e.ChildText("header.Card__Header"))
 }
 
 func main() {
 	c := colly.NewCollector()
 
-	teams := []string{}
+	// teams := []string{}
 
 	c.OnError(func(_ *colly.Response, err error) {
 		fmt.Println("Error: ", err.Error())
@@ -52,20 +64,25 @@ func main() {
 		e.ForEach("section.gameModules", addGameDay)
 	})
 
+	c.OnHTML("html", func(e *colly.HTMLElement) {
+		fmt.Println(e.ChildText("a.AnchorLink"))
+	})
+
 	// Get Date with ForEach
 	c.OnHTML("html", func(e *colly.HTMLElement) {
 		e.ForEach("section.gameModules", getGameDayInfo)
 	})
 
 	// Get Teams names
-	c.OnHTML("div.ScoreCell__TeamName", func(e *colly.HTMLElement) {
-		teams = append(teams, e.Text)
-	})
+	// c.OnHTML("div.ScoreCell__TeamName", func(e *colly.HTMLElement) {
+	// 	teams = append(teams, e.Text)
+	// })
 
 	c.Visit("https://www.espn.com/nfl/scoreboard/_/week/1/year/2024/seasontype/2")
+
 	// fmt.Println(teams)
-	fmt.Println(numOfGameDays)
-	fmt.Println(days)
+	// fmt.Println(numOfGameDays)
+	// fmt.Println(days)
 
 	// Create new gamedays with days and teams
 

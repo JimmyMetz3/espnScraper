@@ -1,0 +1,111 @@
+{
+    "Week": 1,
+    "Gamedays": [
+        {
+            "Day": 1,
+            "Matchups": [
+                {
+                    "Game1": [
+                        {
+                            "AwayTeam": {
+                                "Team": {
+                                    "Name": "Jags",
+                                    "Wins": 0,
+                                    "Losses": 0,
+                                    "Ties": 0
+                                }
+                            }
+                        },
+                        {
+                            "HomeTeam": {
+                                "Team": {
+                                    "Name": "Jags",
+                                    "Wins": 0,
+                                    "Losses": 0,
+                                    "Ties": 0
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Game2": [
+                        {
+                            "AwayTeam": {
+                                "Team": {
+                                    "Name": "Jags",
+                                    "Wins": 0,
+                                    "Losses": 0,
+                                    "Ties": 0
+                                }
+                            }
+                        },
+                        {
+                            "HomeTeam": {
+                                "Team": {
+                                    "Name": "Jags",
+                                    "Wins": 0,
+                                    "Losses": 0,
+                                    "Ties": 0
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Day": 2,
+            "Matchups": [
+                {
+                    "Game1": [
+                        {
+                            "AwayTeam": {
+                                "Team": {
+                                    "Name": "Jags",
+                                    "Wins": 0,
+                                    "Losses": 0,
+                                    "Ties": 0
+                                }
+                            }
+                        },
+                        {
+                            "HomeTeam": {
+                                "Team": {
+                                    "Name": "Jags",
+                                    "Wins": 0,
+                                    "Losses": 0,
+                                    "Ties": 0
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Game2": [
+                        {
+                            "AwayTeam": {
+                                "Team": {
+                                    "Name": "Jags",
+                                    "Wins": 0,
+                                    "Losses": 0,
+                                    "Ties": 0
+                                }
+                            }
+                        },
+                        {
+                            "HomeTeam": {
+                                "Team": {
+                                    "Name": "Jags",
+                                    "Wins": 0,
+                                    "Losses": 0,
+                                    "Ties": 0
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
