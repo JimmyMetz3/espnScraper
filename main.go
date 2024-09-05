@@ -80,6 +80,12 @@ func main() {
 
 	c.Visit("https://www.espn.com/nfl/scoreboard/_/week/1/year/2024/seasontype/2")
 
+	c.Visit("https://www.cbssports.com/nfl/scoreboard/2024/regular/1/")
+
+	c.OnHTML("html", func(e *colly.HTMLElement) {
+		fmt.Println(e.ChildText("div"))
+	})
+
 	// fmt.Println(teams)
 	// fmt.Println(numOfGameDays)
 	// fmt.Println(days)
