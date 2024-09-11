@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"time"
 
 	"github.com/gocolly/colly"
@@ -19,31 +18,25 @@ type DayOfWeek struct {
 }
 
 type Matchup struct {
-	AwayTeam Team
-	HomeTeam Team
+	AwayTeam string
+	HomeTeam string
 }
 
-type Team struct {
-	Name   string
-	Wins   int
-	Losses int
-	Ties   int
-}
+// var numOfGameDays int = 0
 
-var numOfGameDays int = 0
-var days = []string{}
+// var days = []string{}
 
-func addGameDay(index int, e *colly.HTMLElement) {
-	if strings.Contains(e.ChildText("header.Card__Header"), "2024") {
-		numOfGameDays++
-	}
-}
+// func addGameDay(index int, e *colly.HTMLElement) {
+// 	if strings.Contains(e.ChildText("header.Card__Header"), "2024") {
+// 		// numOfGameDays++
+// 	}
+// }
 
 func getGameDayInfo(index int, e *colly.HTMLElement) {
 	fmt.Println(e.ChildText("header.Card__Header"))
 	fmt.Println(e.ChildText("div.ScoreCell__TeamName"))
-	// fmt.Println(e.ChildText("a"))
-	days = append(days, e.ChildText("header.Card__Header"))
+	fmt.Println(e.ChildText("div>span.ScoreboardCell__Record"))
+	// days = append(days, e.ChildText("header.Card__Header"))
 }
 
 func main() {
@@ -60,13 +53,9 @@ func main() {
 	})
 
 	// Get Num of Days
-	c.OnHTML("html", func(e *colly.HTMLElement) {
-		e.ForEach("section.gameModules", addGameDay)
-	})
-
-	c.OnHTML("html", func(e *colly.HTMLElement) {
-		fmt.Println(e.ChildText("a.AnchorLink"))
-	})
+	// c.OnHTML("html", func(e *colly.HTMLElement) {
+	// 	e.ForEach("section.gameModules", addGameDay)
+	// })
 
 	// Get Date with ForEach
 	c.OnHTML("html", func(e *colly.HTMLElement) {
@@ -79,12 +68,6 @@ func main() {
 	// })
 
 	c.Visit("https://www.espn.com/nfl/scoreboard/_/week/1/year/2024/seasontype/2")
-
-	c.Visit("https://www.cbssports.com/nfl/scoreboard/2024/regular/1/")
-
-	c.OnHTML("html", func(e *colly.HTMLElement) {
-		fmt.Println(e.ChildText("div"))
-	})
 
 	// fmt.Println(teams)
 	// fmt.Println(numOfGameDays)

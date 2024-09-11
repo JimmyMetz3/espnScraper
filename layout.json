@@ -7,48 +7,20 @@
                 {
                     "Game1": [
                         {
-                            "AwayTeam": {
-                                "Team": {
-                                    "Name": "Jags",
-                                    "Wins": 0,
-                                    "Losses": 0,
-                                    "Ties": 0
-                                }
-                            }
+                            "AwayTeam": "String"
                         },
                         {
-                            "HomeTeam": {
-                                "Team": {
-                                    "Name": "Jags",
-                                    "Wins": 0,
-                                    "Losses": 0,
-                                    "Ties": 0
-                                }
-                            }
+                            "HomeTeam": "String"
                         }
                     ]
                 },
                 {
-                    "Game2": [
+                    "Game1": [
                         {
-                            "AwayTeam": {
-                                "Team": {
-                                    "Name": "Jags",
-                                    "Wins": 0,
-                                    "Losses": 0,
-                                    "Ties": 0
-                                }
-                            }
+                            "AwayTeam": "String"
                         },
                         {
-                            "HomeTeam": {
-                                "Team": {
-                                    "Name": "Jags",
-                                    "Wins": 0,
-                                    "Losses": 0,
-                                    "Ties": 0
-                                }
-                            }
+                            "HomeTeam": "String"
                         }
                     ]
                 }
@@ -60,48 +32,20 @@
                 {
                     "Game1": [
                         {
-                            "AwayTeam": {
-                                "Team": {
-                                    "Name": "Jags",
-                                    "Wins": 0,
-                                    "Losses": 0,
-                                    "Ties": 0
-                                }
-                            }
+                            "AwayTeam": "String"
                         },
                         {
-                            "HomeTeam": {
-                                "Team": {
-                                    "Name": "Jags",
-                                    "Wins": 0,
-                                    "Losses": 0,
-                                    "Ties": 0
-                                }
-                            }
+                            "HomeTeam": "String"
                         }
                     ]
                 },
                 {
-                    "Game2": [
+                    "Game1": [
                         {
-                            "AwayTeam": {
-                                "Team": {
-                                    "Name": "Jags",
-                                    "Wins": 0,
-                                    "Losses": 0,
-                                    "Ties": 0
-                                }
-                            }
+                            "AwayTeam": "String"
                         },
                         {
-                            "HomeTeam": {
-                                "Team": {
-                                    "Name": "Jags",
-                                    "Wins": 0,
-                                    "Losses": 0,
-                                    "Ties": 0
-                                }
-                            }
+                            "HomeTeam": "String"
                         }
                     ]
                 }
